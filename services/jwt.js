@@ -2,7 +2,7 @@
 
 var jwt = require('jwt-simple');
 var moment = require('moment');
-var secret = 'desarrollandoproyecto2adjkgw';
+var secret = 'clave_secreta_proyecto';
 
 exports.createToken = function(user){
 	var payload = {
