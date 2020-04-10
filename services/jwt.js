@@ -2,8 +2,8 @@
 
 var jwt = require('jwt-simple');
 var moment = require('moment');
-var secret = 'clave_secreta_curso_desarrollar_red_social_angular';
-/*al subir al github sacar la variable secret*/
+var secret = 'desarrollandoproyecto2adjkgw';
+
 exports.createToken = function(user){
 	var payload = {
 		sub: user._id,
