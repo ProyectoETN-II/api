@@ -9,7 +9,8 @@ var md_auth = require('../middlewares/authenticated');
 var multipart = require('connect-multiparty');
 
 api.get('/pruebas', UserController.pruebas);
-api.post('/register', UserController.saveUser);
-
+api.post('/saveUser', UserController.saveUser);
+ 
 module.exports = api;
 
+ 

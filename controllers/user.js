@@ -1,8 +1,5 @@
 'use strict'
 var bcrypt = require('bcrypt-nodejs');
-var fs = require('fs');
-var path = require('path');
-var moment = require('moment');
 const mysql = require('mysql');
 
 const db = mysql.createConnection({
@@ -23,21 +20,22 @@ function pruebas(req, res){
 function saveUser(req, res){
 	var params = req.body;
 
-	if(params.name &&  params.password && params.surname && params.email){
+	if(params.nombre &&  params.password && params.apellido && params.email){
 
-		var name = params.name;
-		var surname = params.surname;
+		var nombre = params.nombre;
+		var apellido = params.apellido;
 		var password = params.password;
 		var email = params.email;
 
-		 let sql = "INSERT INTO user (`nombre`, `apellido`, `password`, `email`) VALUES ('" + name + "', '" + surname + "', '" + password + "', '" + email + "')";
+		 let sql = "INSERT INTO vendedores (`nombre`, `apellido`, `password`, `email`) VALUES ('" + nombre + "', '" + apellido + "', '" + password + "', '" + email + "')";
+		 console.log(sql);
 		 let query = db.query(sql , (err, result) => {
-		     if(err) throw err;
-		     console.log(result);
-		     res.send(result);
+		     if(err) return res.status(500).send({message: 'Han ocurrido un error al ingresar los datos'});
+			 console.log(result);
+			 return res.status(200).send({result});
 		 });
 	}else{
-		res.status(404).send({
+		return res.status(404).send({
 			message: 'Te falta llenar los campos'
 		});
 	}
