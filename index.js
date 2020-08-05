@@ -7,8 +7,8 @@ var app = require('./app');
 const db = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
-    password : '',
-    database : 'proyectoii'
+    password : '123',
+    database : 'proyectoII'
 });
 
 // Connect
